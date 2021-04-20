@@ -460,7 +460,7 @@ func String(v interface{}) (string, bool) {
 	case string:
 		return s, true
 	default:
-		return "", false
+		return fmt.Sprint(s), true
 	}
 }
 
