@@ -50,6 +50,221 @@ func Int(v interface{}) (int, bool) {
 	}
 }
 
+func Int32(v interface{}) (int32, bool) {
+	switch i := v.(type) {
+	case int:
+		return int32(i), true
+	case uint:
+		return int32(i), true
+	case int8:
+		return int32(i), true
+	case int16:
+		return int32(i), true
+	case int32:
+		return int32(i), true
+	case int64:
+		return int32(i), true
+	case uint8:
+		return int32(i), true
+	case uint16:
+		return int32(i), true
+	case uint32:
+		return int32(i), true
+	case uint64:
+		return int32(i), true
+	case float32:
+		return int32(i), true
+	case float64:
+		return int32(i), true
+	case bool:
+		if i {
+			return 1, true
+		} else {
+			return 0, true
+		}
+	case string:
+		f, err := strconv.ParseFloat(i, 64)
+		if err != nil {
+			return 0, false
+		}
+		return int32(f), true
+	default:
+		return 0, false
+	}
+}
+
+func Int64(v interface{}) (int64, bool) {
+	switch i := v.(type) {
+	case int:
+		return int64(i), true
+	case uint:
+		return int64(i), true
+	case int8:
+		return int64(i), true
+	case int16:
+		return int64(i), true
+	case int32:
+		return int64(i), true
+	case int64:
+		return int64(i), true
+	case uint8:
+		return int64(i), true
+	case uint16:
+		return int64(i), true
+	case uint32:
+		return int64(i), true
+	case uint64:
+		return int64(i), true
+	case float32:
+		return int64(i), true
+	case float64:
+		return int64(i), true
+	case bool:
+		if i {
+			return 1, true
+		} else {
+			return 0, true
+		}
+	case string:
+		f, err := strconv.ParseFloat(i, 64)
+		if err != nil {
+			return 0, false
+		}
+		return int64(f), true
+	default:
+		return 0, false
+	}
+}
+
+func Uint(v interface{}) (uint, bool) {
+	switch i := v.(type) {
+	case int:
+		return uint(i), true
+	case uint:
+		return uint(i), true
+	case int8:
+		return uint(i), true
+	case int16:
+		return uint(i), true
+	case int32:
+		return uint(i), true
+	case int64:
+		return uint(i), true
+	case uint8:
+		return uint(i), true
+	case uint16:
+		return uint(i), true
+	case uint32:
+		return uint(i), true
+	case uint64:
+		return uint(i), true
+	case float32:
+		return uint(i), true
+	case float64:
+		return uint(i), true
+	case bool:
+		if i {
+			return 1, true
+		} else {
+			return 0, true
+		}
+	case string:
+		f, err := strconv.ParseFloat(i, 64)
+		if err != nil {
+			return 0, false
+		}
+		return uint(f), true
+	default:
+		return 0, false
+	}
+}
+
+func Uint32(v interface{}) (uint32, bool) {
+	switch i := v.(type) {
+	case int:
+		return uint32(i), true
+	case uint:
+		return uint32(i), true
+	case int8:
+		return uint32(i), true
+	case int16:
+		return uint32(i), true
+	case int32:
+		return uint32(i), true
+	case int64:
+		return uint32(i), true
+	case uint8:
+		return uint32(i), true
+	case uint16:
+		return uint32(i), true
+	case uint32:
+		return uint32(i), true
+	case uint64:
+		return uint32(i), true
+	case float32:
+		return uint32(i), true
+	case float64:
+		return uint32(i), true
+	case bool:
+		if i {
+			return 1, true
+		} else {
+			return 0, true
+		}
+	case string:
+		f, err := strconv.ParseFloat(i, 64)
+		if err != nil {
+			return 0, false
+		}
+		return uint32(f), true
+	default:
+		return 0, false
+	}
+}
+
+func Uint64(v interface{}) (uint64, bool) {
+	switch i := v.(type) {
+	case int:
+		return uint64(i), true
+	case uint:
+		return uint64(i), true
+	case int8:
+		return uint64(i), true
+	case int16:
+		return uint64(i), true
+	case int32:
+		return uint64(i), true
+	case int64:
+		return uint64(i), true
+	case uint8:
+		return uint64(i), true
+	case uint16:
+		return uint64(i), true
+	case uint32:
+		return uint64(i), true
+	case uint64:
+		return uint64(i), true
+	case float32:
+		return uint64(i), true
+	case float64:
+		return uint64(i), true
+	case bool:
+		if i {
+			return 1, true
+		} else {
+			return 0, true
+		}
+	case string:
+		f, err := strconv.ParseFloat(i, 64)
+		if err != nil {
+			return 0, false
+		}
+		return uint64(f), true
+	default:
+		return 0, false
+	}
+}
+
 // Float 转成浮点
 func Float(v interface{}) (float64, bool) {
 	switch i := v.(type) {
