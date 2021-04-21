@@ -471,9 +471,14 @@ func Time(v interface{}) (time.Time, bool) {
 		return t, true
 	case *time.Time:
 		return *t, true
+	case string:
+		if tt, err := time.Parse(time.RFC3339, t); err == nil {
+			return tt, true
+		}
 	default:
 		return time.Time{}, false
 	}
+	return time.Time{}, false
 }
 
 // Duration 转成 Duration 类型
