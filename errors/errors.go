@@ -5,10 +5,14 @@ import "errors"
 type ErrCode int16
 
 const (
-	Unknown ErrCode = -1 + iota
+	ErrUnknown ErrCode = -1 + iota
+	ErrAuto
 )
 
-var errCodes = make(map[error]ErrCode)
+var (
+	errCodes            = make(map[error]ErrCode)
+	lastErrCode ErrCode = 10000
+)
 
 func ErrorCode(err error) ErrCode {
 	if code, ok := errCodes[err]; !ok {
@@ -17,7 +21,7 @@ func ErrorCode(err error) ErrCode {
 				return code
 			}
 		}
-		return Unknown
+		return ErrUnknown
 	} else {
 		return code
 	}
@@ -28,5 +32,13 @@ func RegisterErrCode(err error, code ErrCode) {
 		return
 	}
 
+	if code == ErrAuto {
+		lastErrCode++
+		code = lastErrCode
+	} else {
+		if code > lastErrCode {
+			lastErrCode = code
+		}
+	}
 	errCodes[err] = code
 }
