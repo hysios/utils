@@ -42,3 +42,7 @@ func RegisterErrCode(err error, code ErrCode) {
 	}
 	errCodes[err] = code
 }
+
+func New(s string) error {
+	return errors.New(s)
+}
