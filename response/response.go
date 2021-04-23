@@ -6,6 +6,7 @@ import (
 	"reflect"
 
 	"github.com/fatih/structs"
+	"github.com/hysios/utils/errors"
 	"github.com/iancoleman/strcase"
 )
 
@@ -58,8 +59,9 @@ func camelCase(str string) string {
 func AbortErr(w http.ResponseWriter, status int, err error) {
 	w.WriteHeader(status)
 	var m = map[string]interface{}{
-		"status": "error",
-		"errors": err.Error(),
+		"status":  "error",
+		"errCode": errors.ErrorCode(err),
+		"errors":  err.Error(),
 	}
 	b, _ := json.Marshal(m)
 	w.Write(b)
