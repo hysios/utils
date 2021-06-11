@@ -488,6 +488,8 @@ func Duration(v interface{}) (time.Duration, bool) {
 		return t, true
 	case int:
 		return time.Duration(t), true
+	case float64:
+		return time.Duration(int(t)), true
 	default:
 		return 0, false
 	}
