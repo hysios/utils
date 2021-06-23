@@ -3,6 +3,9 @@ package utils
 import (
 	"reflect"
 	"testing"
+	"time"
+
+	"github.com/tj/assert"
 )
 
 func TestSplitLast(t *testing.T) {
@@ -58,4 +61,14 @@ func TestSplitLast(t *testing.T) {
 			}
 		})
 	}
+}
+
+func TestParseDatestr(t *testing.T) {
+
+	got, err := ParseDatestr("20210621140431974", 3)
+	assert.NoError(t, err)
+	assert.NotNil(t, got)
+	t.Logf("got %s", got)
+	t.Logf("date %s", time.Date(2021, 6, 21, 14, 04, 31, 974*1000000, time.UTC))
+	assert.Equal(t, got, time.Date(2021, 6, 21, 14, 04, 31, 974*1000000, time.UTC))
 }
