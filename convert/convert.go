@@ -459,6 +459,8 @@ func String(v interface{}) (string, bool) {
 		return string(s), true
 	case string:
 		return s, true
+	case nil:
+		return "", true
 	default:
 		return fmt.Sprint(s), true
 	}
