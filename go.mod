@@ -1,6 +1,6 @@
 module github.com/hysios/utils
 
-go 1.15
+go 1.18
 
 require (
 	github.com/fatih/structs v1.1.0
