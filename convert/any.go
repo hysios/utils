@@ -975,6 +975,12 @@ func Time(v interface{}) (time.Time, bool) {
 	case *time.Time:
 		return *t, true
 	case string:
+		if tt, err := time.Parse("2006-01-02 15:04:05", t); err == nil {
+			return tt, true
+		}
+		if tt, err := time.Parse("2006-01-02", t); err == nil {
+			return tt, true
+		}
 		if tt, err := time.Parse(time.RFC3339, t); err == nil {
 			return tt, true
 		}
@@ -992,6 +998,12 @@ func ToTime(v interface{}) time.Time {
 	case *time.Time:
 		return *t
 	case string:
+		if tt, err := time.Parse("2006-01-02 15:04:05", t); err == nil {
+			return tt
+		}
+		if tt, err := time.Parse("2006-01-02", t); err == nil {
+			return tt
+		}
 		if tt, err := time.Parse(time.RFC3339, t); err == nil {
 			return tt
 		}
